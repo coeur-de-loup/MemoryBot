@@ -51,7 +51,7 @@ def get_text():
         "You: ",
         st.session_state["input"],
         key="input",
-        placeholder="Your AI assistant here! Ask me anything...",
+        placeholder="Your AI assistant here! Ask me anything ...请在这里打字问问题吧",
         on_change=clear_text,
         label_visibility="hidden",
     )
@@ -96,13 +96,13 @@ hide_default_format = """
 st.markdown(hide_default_format, unsafe_allow_html=True)
 
 
-version = st.selectbox("ChatGPT version", ("gpt-3.5-turbo-1106", "gpt-4-1106-preview"))
+version = st.selectbox("Choose ChatGPT version", ("3.5", "4.5"))
 if version == "3.5":
     # Use GPT-3.5 model
-    MODEL = "gpt-3.5-turbo-1106"
+    MODEL = "gpt-3.5-turbo"
 else:
     # USe GPT-4.5 model
-    MODEL = "gpt-4-1106-preview"
+    MODEL = "gpt-4"
 
 # Ask the user to enter their OpenAI API key
 # API_O = st.sidebar.text_input("API-KEY", type="password")
@@ -161,7 +161,7 @@ with st.expander("Conversation", expanded=True):
     download_str = "\n".join(download_str)
 
     if download_str:
-        st.download_button("Download", download_str)
+        st.download_button("Download 下载", download_str)
 
 # Display stored conversation sessions in the sidebar
 for i, sublist in enumerate(st.session_state.stored_session):
